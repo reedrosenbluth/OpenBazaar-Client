@@ -103,14 +103,13 @@
               </div>
             </div>
             <div class="flexCol-4">
-              <% var minBTCPrice = 0.0005 %>
               <input type="number" step="any" name="price" id="inputPrice" class="hide" />
               <input type="text" name="currency_code" id="inputCurrencyCode" class="hide" />
               <input type="number" name="priceLocal" step="any" class="fieldItem js-priceLocal custCol-text"  id="priceLocal" value="<%= ob.price %>" required
                 <% if(ob.userCurrencyCode == "BTC"){ %>
-                min="<%= minBTCPrice %>"
+                min="<%= config.minBTCPrice %>"
                 <% } else { %>
-                min="<% print((window.currentBitcoin * minBTCPrice).toFixed(2)) %>"
+                min="<% print((window.currentBitcoin * config.minBTCPrice).toFixed(2)) %>"
                 <% } %>
               >
             </div>
@@ -118,7 +117,7 @@
               <span class="fieldItem pull-right">
                 <span class="tooltip tooltip-left" data-tooltip="<%= polyglot.t('MinimumPrice') %>">
                   <span class="txt-placeholder custCol-text">
-                    <%= polyglot.t('MinimumIs', { amount: ob.userCurrencyCode == "BTC" ? ob.intlNumFormat(minBTCPrice, 4) : ob.intlNumFormat(window.currentBitcoin * minBTCPrice, 4) }) %>
+                    <%= polyglot.t('MinimumIs', { amount: ob.userCurrencyCode == "BTC" ? ob.intlNumFormat(config.minBTCPrice, 4) : ob.intlNumFormat(window.currentBitcoin * config.minBTCPrice, 4) }) %>
                     <span class="ion-help-circled fontSize12"></span>
                   </span>
                 </span>

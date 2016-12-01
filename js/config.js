@@ -32,6 +32,8 @@ module.exports = {
   
   maxTagHistory: 1000,
   maxHandleHistory: 1000,
+
+  minBTCPrice: 0.0005,
   
   setTestnet: function(testNetBoolean){
     localStorage.setItem('testnet', testNetBoolean);
